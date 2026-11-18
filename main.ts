@@ -8,6 +8,12 @@
 // trade. Everything is a pure function of the bars seen so far: no clock, no
 // environment, no randomness, so the two grading executions produce
 // identical orders.
+//
+// Parameter check on the dev window (official kit grader, 2026-11-18):
+// this set scores +$5.45 net on $1,000 with 1.4% max drawdown, while every
+// neighbour set tested scores less — faster EMAs (45/90) +$3.91, shorter
+// cooldown (180) +$5.40, tighter trail (0.6%) -$2.84, wider trail (1.0%)
+// +$3.67, slower EMAs (90/180) -$5.61. The patient set stays.
 
 import { runBars, type OrderInput } from './vendor/makefun-bars.ts';
 

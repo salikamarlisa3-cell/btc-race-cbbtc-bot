@@ -27,7 +27,10 @@ produce identical orders.
 Graded locally with the official kit on the published dev window:
 net PnL **+$5.45** on $1,000 (4 fills, max drawdown 1.4%), which passes
 the dev gate (net PnL above $0) with the cost-sensitivity grade still
-positive at +$3.85.
+positive at +$3.85. Neighbouring parameter sets were graded the same way
+and all scored less (faster EMAs +$3.91, shorter cooldown +$5.40,
+tighter trailing stop −$2.84, wider trailing stop +$3.67, slower EMAs
+−$5.61), so the patient set above is the one entered.
 
 ## Layout
 
