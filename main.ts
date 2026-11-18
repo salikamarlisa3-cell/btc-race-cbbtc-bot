@@ -25,6 +25,10 @@ const TRAIL = 0.008;
 const HARD_STOP = 0.015;
 const COOLDOWN = 360;
 const SLIPPAGE_BPS = 200;
+// EMA smoothing factors, fixed by the windows above: computed once here
+// instead of on every bar.
+const FAST_K = 2 / (FAST + 1);
+const SLOW_K = 2 / (SLOW + 1);
 
 const closes: number[] = [];
 const emaSlowHist: number[] = [];
@@ -44,8 +48,8 @@ await runBars({
         emaFast = px;
         emaSlow = px;
       } else {
-        emaFast += (2 / (FAST + 1)) * (px - emaFast);
-        emaSlow += (2 / (SLOW + 1)) * (px - emaSlow);
+        emaFast += FAST_K * (px - emaFast);
+        emaSlow += SLOW_K * (px - emaSlow);
       }
       emaSlowHist.push(emaSlow);
     }
